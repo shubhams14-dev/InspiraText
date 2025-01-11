@@ -1,4 +1,4 @@
-import * as multer from "multer"
+import multer from "multer"
 import { MulterError } from "multer"
 import { Request } from "express"
 const allowedFileTypes = ["image/jpeg", "image/png", "image/jpg"];

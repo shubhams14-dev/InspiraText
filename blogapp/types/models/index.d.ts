@@ -40,7 +40,7 @@ createdAt: Date
 updatedAt: Date
 status: string
 otp: OTP | undefined
-myAssests: Types.Array<string>
+myAssets: Types.Array<string>
 generateToken: () => string
 comparePassword: (pswrd: string) => boolean
 }

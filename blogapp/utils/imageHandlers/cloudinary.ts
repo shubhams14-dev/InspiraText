@@ -1,6 +1,7 @@
 import { Request } from "express";
 import { v2 as cloudinary } from "cloudinary";
 import { v4 as uuidv4 } from "uuid";
+import { UploadApiResponse } from "cloudinary";
 
 // Configure Cloudinary with environment variables
 cloudinary.config({
@@ -40,16 +41,18 @@ const deleteProfileImage = async (userId: string): Promise<boolean> => {
         }
 
 // Upload multiple asset images to Cloudinary and return the URLs
-const uploadAssetsImages = async (req: Request) => {
-    const files = req.files as Express.Multer.File[]
-    const urls: string[] = []
+const uploadAssetsImages = async (
+  files: Express.Multer.File[],
+  userId: string
+): Promise<string[]> => {
+  const urls: string[] = [];
 
   for (const file of files) {
     const originalName = file.originalname.split(".")[0] + uuidv4();
-    const result = await cloudinary.uploader.upload(
+    const result: UploadApiResponse = await cloudinary.uploader.upload(
       `data:${file.mimetype};base64,${file.buffer.toString("base64")}`,
       {
-        folder: `blogmind/${req.user.userId}`,
+        folder: `blogmind/${userId}`,
         public_id: originalName,
         overwrite: false,
         format: "webp",
@@ -57,8 +60,9 @@ const uploadAssetsImages = async (req: Request) => {
     );
     urls.push(result.secure_url);
   }
-  return urls
-}
+
+  return urls;
+};
 
 // Delete asset image from Cloudinary
 const deleteAssetImages = async (public_id: string): Promise<boolean> => {
