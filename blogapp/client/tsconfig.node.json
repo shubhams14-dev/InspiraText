@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "composite": true,
+      "module": "CommonJS",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "target": "ES2020",
+      "strict": true,
+      "skipLibCheck": true,
+      "jsx": "react-jsx"
+    },
+    "include": ["./src"]
+  }
+  
