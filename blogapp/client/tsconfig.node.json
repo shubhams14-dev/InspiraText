@@ -2,6 +2,7 @@
     "compilerOptions": {
       "composite": true,
       "module": "CommonJS",
+      "module": "ESNext",
       "esModuleInterop": true,
       "moduleResolution": "node",
       "target": "ES2020",

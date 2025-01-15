@@ -48,7 +48,8 @@ API.interceptors.response.use(
     return response.data;
   },
   function (error) {
-    if (import.meta.env.DEV) console.log(error);
+    const isDev = process.env.NODE_ENV === "development";
+    if (isDev) console.log(error);
 
     if (error.response) {
       toast.error(error.response.data?.msg, { id: error.response.data?.msg });
@@ -199,3 +200,27 @@ export const followUnfollowUser = (userId: UserType["userId"]) =>
   API.post("/user/follow-unfollow", { followId: userId });
 export const isFollowing = (userId: UserType["userId"]) =>
   API.post("/user/is-following", { followId: userId });
+
+
+/**
+ * Search API for blogs or users
+ * @param query - The search query
+ * @param type - The type of search ("blog" or "user")
+ * @param page - The page number for pagination
+ * @param limit - The number of results per page
+ */
+export const search = (
+  query: string,
+  type: string,
+  page: number = 1,
+  limit: number = 10
+) => {
+  return API.get(`/public/search`, {
+    params: {
+      query,
+      type,
+      page,
+      limit,
+    },
+  });
+};

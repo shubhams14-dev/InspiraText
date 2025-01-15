@@ -1,19 +1,31 @@
+// @ts-ignore
+import Alert from "editorjs-alert";
+// @ts-ignore
+import CheckList from "@editorjs/checklist";
+// @ts-ignore
+import Button from "editorjs-button";
+// @ts-ignore
+import Link from "@editorjs/link";
+// @ts-ignore
+import Button from "editorjs-button";
+// @ts-ignore
+import InlineCode from "@editorjs/inline-code";
+// @ts-ignore
+import ColorPlugin from "editorjs-text-color-plugin";
+// @ts-ignore
+import AlignmentBlockTune from "editorjs-text-alignment-blocktune";
+
 import { createContext, useContext, useState } from "react";
 import EditorJS, { OutputData } from "@editorjs/editorjs";
 import List from "@editorjs/list";
 import ImageTool from "@editorjs/image";
 import Embed from "@editorjs/embed";
-import Alert from "editorjs-alert";
-import CheckList from "@editorjs/checklist";
-import Link from "@editorjs/link";
+
 import Code from "@editorjs/code";
-import Button from "editorjs-button";
-import InlineCode from "@editorjs/inline-code";
-import ColorPlugin from "editorjs-text-color-plugin";
-import AlignmentBlockTune from "editorjs-text-alignment-blocktune";
+
 
 import { uploadAssets } from "../api";
-import { GenerateWithAiButton } from "../components/GenerateWithAiButton";
+import { GenerateWithAiButton } from "../components/GenerateWithAIButton";
 import Title from "title-editorjs";
 import toast from "react-hot-toast";
 
@@ -63,7 +75,7 @@ function EditorContextProvider(props: any) {
           },
         },
         list: {
-          class: List,
+          class: List as any,
           tunes: ["textAlignment"],
           config: {
             defaultStyle: "unordered",
@@ -113,7 +125,7 @@ function EditorContextProvider(props: any) {
           },
         },
         embed: {
-          class: Embed,
+          class: Embed as any,
           config: {
             services: {
               youtube: true,
@@ -176,10 +188,10 @@ import "./index.css";
 
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "./theme.tsx";
+import theme from "../theme";
 
 import { Provider } from "react-redux";
-import store from "./store";
+import store from "../store";
 
 import { EditorContextProvider } from "./context/EditorContext";
 import { PostHogProvider } from "posthog-js/react";
