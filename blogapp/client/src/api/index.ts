@@ -202,6 +202,30 @@ export const isFollowing = (userId: UserType["userId"]) =>
   API.post("/user/is-following", { followId: userId });
 
 
+
+/**
+ * Add a comment to a blog
+ * @param blogId - The ID of the blog
+ * @param comment - The comment message
+ */
+export const commentBlog = (blogId: string, comment: string) => 
+  API.post(`/blogs/${blogId}/comments`, { message: comment });
+
+/**
+ * Get a single blog by ID
+ * @param blogId - The ID of the blog
+ */
+export const getBlog = (blogId: string) => 
+  API.get(`/blogs/${blogId}`);
+
+/**
+ * Like or unlike a blog
+ * @param blogId - The ID of the blog
+ */
+export const likeBlog = (blogId: string) => 
+  API.post(`/blogs/${blogId}/like`);
+
+
 /**
  * Search API for blogs or users
  * @param query - The search query

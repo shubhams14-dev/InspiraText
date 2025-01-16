@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import img from "../assets/img/Auth/signup.webp";
+// import img from "../assets/img/Auth/signup.webp";
+const img = "https://via.placeholder.com/600x800?text=Sign+Up+Image";
+
 import { SignUpType } from "../definitions";
 import { register } from "../features/userSlice";
 import ContinueWithGoogleButton from "../components/ContinueWithGoogleButton";

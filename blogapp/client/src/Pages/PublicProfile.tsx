@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   followUnfollowUser,
-  getOtherUserBlogs,
+  // getUserBlogs,
+  getUserBlogs,
   getUserProfile,
   isFollowing,
 } from "../api";
@@ -65,10 +66,17 @@ const PublicProfile = () => {
 
   useEffect(() => {
     if (!userId) return;
-    getOtherUserBlogs(userId, page, limit)
-      .then((response) => setBlogs(response.data.blogs))
+    getUserBlogs(page, limit)
+      .then((response) => {
+        // Filter blogs by userId if necessary
+        const filteredBlogs = response.data.blogs.filter(
+          (blog:any) => blog.author._id === userId
+        );
+        setBlogs(filteredBlogs);
+      })
       .catch((error) => console.log("Error fetching user blogs", error));
-  }, [page]);
+  }, [page, userId]);
+  
 
   useEffect(() => {
     if (loading || !userId) return;

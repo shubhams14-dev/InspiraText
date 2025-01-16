@@ -1,5 +1,7 @@
 import * as React from "react";
-import img from "../assets/img/Auth/signup.webp";
+// import img from "../assets/img/Auth/signup.webp";
+const img = "https://via.placeholder.com/400x300";
+
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { login } from "../features/userSlice";
 import { Link, useNavigate } from "react-router-dom";

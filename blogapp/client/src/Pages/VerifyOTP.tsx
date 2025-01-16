@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { verification } from "../features/userSlice";
 import { MuiOtpInput } from "mui-one-time-password-input";
-import img from "../assets/img/Auth/otp.png";
+// import img from "../assets/img/Auth/otp.png";
+const img = "https://via.placeholder.com/400x400?text=OTP+Verification";
+
 import Loader from "../components/Loader";
 
 export default function VerifyOtp(): JSX.Element {

@@ -183,7 +183,7 @@ const useEditorContext = () => {
 export { EditorContext, EditorContextProvider, useEditorContext };
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "../App";
 import "./index.css";
 
 import { Toaster } from "react-hot-toast";
@@ -193,7 +193,7 @@ import theme from "../theme";
 import { Provider } from "react-redux";
 import store from "../store";
 
-import { EditorContextProvider } from "./context/EditorContext";
+import { EditorContextProvider } from "../context/EditorContext";
 import { PostHogProvider } from "posthog-js/react";
 
 const options = {

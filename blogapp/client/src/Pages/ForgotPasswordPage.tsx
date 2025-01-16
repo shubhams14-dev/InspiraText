@@ -1,5 +1,7 @@
 import * as React from "react";
-import img from "../assets/img/Auth/signup.webp";
+// import img from "../assets/img/Auth/signup.webp";
+const img = "https://via.placeholder.com/300x400.png?text=Forgot+Password";
+
 import { useAppDispatch, useAppSelector } from "../hooks";
 import {
   forgotPasswordSendOtp,

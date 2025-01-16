@@ -1,9 +1,13 @@
 import Hero from "../components/Hero";
 import PricingTable from "../components/PricingTable";
 import ContactUs from "../components/ContactUs";
-import left from "../assets/img/LandingPage/left.avif";
-import right from "../assets/img/LandingPage/right.avif";
-import middle from "../assets/img/LandingPage/middle.avif";
+// import left from "../assets/img/LandingPage/left.avif";
+// import right from "../assets/img/LandingPage/right.avif";
+// import middle from "../assets/img/LandingPage/middle.avif";
+const left = "https://via.placeholder.com/500x500.png?text=Left+Image";
+const right = "https://via.placeholder.com/500x500.png?text=Right+Image";
+const middle = "https://via.placeholder.com/500x500.png?text=Middle+Image";
+
 import Features from "../components/Features";
 import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
